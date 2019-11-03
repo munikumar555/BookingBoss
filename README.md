@@ -1,4 +1,4 @@
-Hi,
+Steps to run the Project
 
 Please find git hub url for the assignment. 
 
