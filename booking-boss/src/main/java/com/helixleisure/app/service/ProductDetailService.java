@@ -1,5 +1,6 @@
 package com.helixleisure.app.service;
 
+import com.helixleisure.app.dto.ProductResponse;
 import com.helixleisure.app.entity.ProductDetails;
 
 /**
@@ -13,9 +14,9 @@ public interface ProductDetailService {
 	 * Store products.
 	 *
 	 * @param productDetails the product details
-	 * @return the string
+	 * @return the details
 	 */
-	String storeProducts(ProductDetails productDetails);
+	ProductResponse storeProducts(ProductDetails productDetails);
 	
 	/**
 	 * Gets the details.

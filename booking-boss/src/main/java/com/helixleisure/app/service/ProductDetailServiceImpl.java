@@ -1,8 +1,10 @@
 package com.helixleisure.app.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import com.helixleisure.app.dto.ProductResponse;
 import com.helixleisure.app.entity.ProductDetails;
 import com.helixleisure.app.exception.ProductNotFound;
 import com.helixleisure.app.exception.ProductNotStored;
@@ -28,10 +30,15 @@ public class ProductDetailServiceImpl implements ProductDetailService{
 	 * @return the string
 	 */
 	@Override
-	public String storeProducts(ProductDetails productDetails) {
+	public ProductResponse storeProducts(ProductDetails productDetails) {
+		ProductResponse response = new ProductResponse();
 		productDetails.getProducts().forEach(x->x.setProductDetails(productDetails));
 		ProductDetails saveResponse = productDetailsRepository.save(productDetails);
-		if(saveResponse!=null) return ProductConstant.STORED_SUCCESS;
+		if(saveResponse!=null) {
+			response.setMessage(ProductConstant.STORED_SUCCESS);
+			response.setStatus(HttpStatus.OK.value());
+			return response;
+		}
 		else
 			throw new ProductNotStored(productDetails.getId());
 	}

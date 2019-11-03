@@ -42,7 +42,7 @@ public class ProductDetailServiceTest {
 	 */
 	@Test
 	public void addProductsTest() {
-		assertEquals(ProductConstant.STORED_SUCCESS, bookingBossService.storeProducts(setProductDetails()));
+		assertEquals(ProductConstant.STORED_SUCCESS, bookingBossService.storeProducts(setProductDetails()).getMessage());
 	}
 	
 	/**

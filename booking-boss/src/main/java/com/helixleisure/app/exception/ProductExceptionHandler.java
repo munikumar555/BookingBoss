@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.helixleisure.app.dto.ProductResponse;
+
 /**
  * The Class ProductExceptionHandler.
  * 
@@ -22,9 +24,9 @@ public class ProductExceptionHandler {
 	 */
 	@ExceptionHandler(value = { ProductNotStored.class, ProductNotFound.class })
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ErrorResponse productNotStored(Exception ex)
+    public ProductResponse productNotStored(Exception ex)
     {
-        return new ErrorResponse(400, ex.getMessage());
+        return new ProductResponse(400, ex.getMessage());
     }
 	
     /**
@@ -35,8 +37,8 @@ public class ProductExceptionHandler {
      */
     @ExceptionHandler(value = { Exception.class })
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ErrorResponse unKnownException(Exception ex)
+    public ProductResponse unKnownException(Exception ex)
     {
-        return new ErrorResponse(404, "Bad Request");
+        return new ProductResponse(404, "Bad Request");
     }
 }

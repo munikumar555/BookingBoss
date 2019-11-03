@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.helixleisure.app.dto.ProductResponse;
 import com.helixleisure.app.entity.ProductDetails;
 import com.helixleisure.app.service.ProductDetailService;
 
@@ -32,8 +33,8 @@ public class ProductDetailController {
 	 * @return the response entity
 	 */
 	@PostMapping(path = "/store-products", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<String> processProductDetails(@RequestBody ProductDetails productDetails) {
-		return new ResponseEntity<String>(bookingBossService.storeProducts(productDetails), HttpStatus.OK);
+	public ResponseEntity<ProductResponse> processProductDetails(@RequestBody ProductDetails productDetails) {
+		return new ResponseEntity<ProductResponse>(bookingBossService.storeProducts(productDetails), HttpStatus.OK);
 	}
 
 	/**

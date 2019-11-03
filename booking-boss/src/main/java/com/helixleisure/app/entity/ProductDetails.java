@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class ProductDetails.
  * 
@@ -41,6 +42,7 @@ public class ProductDetails implements Serializable{
 	 * Instantiates a new product details.
 	 */
 	public ProductDetails() {
+		
 	}
 	
 	/**
@@ -113,7 +115,8 @@ public class ProductDetails implements Serializable{
 	 */
 	@Override
 	public String toString() {
-		return "ProductDetails [timestamp=" + timestamp + ", products=" + products + "]";
+		return "ProductDetails [id=" + id + ", timestamp=" + timestamp + ", products=" + products + "]";
 	}
+	
 	
 }
